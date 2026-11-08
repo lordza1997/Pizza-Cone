@@ -3,7 +3,7 @@ services:
     name: pizza-cone-ordering
     runtime: node
     plan: free
-    buildCommand: npm ci && npm run build
+    buildCommand: npm ci --include=dev && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
@@ -21,4 +21,3 @@ services:
         sync: false
       - key: VITE_SUPABASE_ANON_KEY
         sync: false
-
