@@ -5,6 +5,7 @@
 ## ตั้งค่า Supabase
 1. สร้างโปรเจกต์ Supabase แล้วเปิด SQL Editor
 2. รัน supabase/schema.sql เพื่อสร้าง/อัปเดตตาราง orders, เมนูที่ปรับได้ menu_config, ตาราง feed สถานะ order_status, trigger และ Realtime publication. สำหรับฐานข้อมูลเดิมให้รันไฟล์นี้ซ้ำเพื่อเพิ่มตารางตั้งค่าเมนูและปรับข้อจำกัดขนาด/ซอส
+   หากแอปแจ้งว่าไม่พบตาราง `menu_config` ให้รัน `supabase/menu_config_migration.sql` ใน SQL Editor แล้วลองบันทึกเมนูอีกครั้ง (ไฟล์นี้ไม่แก้ไขออเดอร์เดิม)
 3. จาก Project Settings → API Keys คัดลอก Project URL, Publishable key และ Secret key. ใส่ Publishable key ใน VITE_SUPABASE_ANON_KEY และ Secret key ใน SUPABASE_SERVICE_ROLE_KEY
 4. ใส่ค่าลง .env.local: server URL/key, รหัสผ่าน ADMIN_PASSWORD, ค่า SESSION_SECRET แบบสุ่มอย่างน้อย 32 ตัวอักษร, browser URL/key
 5. ห้ามใส่ Secret/service_role key ในตัวแปร VITE_*. หากมีตารางจาก schema เก่าที่กำหนด slip_url เป็น NOT NULL ให้รัน supabase/upgrade_from_slip_schema.sql ด้วย
